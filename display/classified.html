@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>-->
+<script src="jquery.min.js"></script>
+
+<style>
+    .peek {
+        margin-left:100px;
+    }        
+    #container {
+        border-style: solid;
+        border-width: 1px;
+        height: 600px;
+    }    
+    #key_pad {
+        width:50px;
+        height:50px;
+                border-style: solid;
+
+    }
+    </style>
+
+<script src="xyz.js"></script>
+<script src="merge_helper.js"></script>
+</head>
+
+<body>
+    <script src="/HealthPath/common/Three.js"></script>
+    <script src="/HealthPath/common/OrbitControls.js"></script>
+
+    <div id="container"></div>
+    <hr>
+    <table border='1'>
+    <tr><td>Bigness=Velocity</td><td>Z=timeslice</td><td>Y=height=seen</td></tr>
+    <tr><td colspan='3'>X=(gender_code|ccs_category_id|drug_label_name|drug_group_description|after_cure|during_treatment|before_diagnosis) cluster<br>
+	<select>
+	<option>hydrocodone/acetaminophen tablet</option>
+	<option>antihyperlipidemics</option>
+	<option>random</option>
+	</select>	
+	</td></tr>
+	<tr><td>Red=Breast Cancer ( ccs 24 ) </td><td>Charcoal=Prostate ( ccs 29 )</td><td>Blue=Melinoma( ccs 22 ) </td></tr>
+    </table>
+    <hr>
+    <div id="choosen">
+    </div>
+    <br>
+
+
+
+<script>
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+    e = e || window.event;
+
+    if (e.keyCode == '38') {
+        // up arrow
+                addZ();
+    }
+    else if (e.keyCode == '40') {
+        // down arrow
+                addY();
+    }
+    else if (e.keyCode == '37') {
+        addX();
+    }
+    else if (e.keyCode == '39') {
+       // right arrow
+    }
+
+}
+</script>
+
+
+<script src="world3d.js"></script>
+
+<script src="xyz_keyboard.js"></script>
+<script src="merge_communicate.js"></script>
+<script src="ReadPSV.js"></script>
+
+
+<script>
+loadPSV();
+</script>
+
+</body>
+</html>
